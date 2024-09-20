@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>GerreD Web - Usuários</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Adiciona o jQuery -->
+    <script th:src="@{/script/usuarioScript.js}"></script> <!-- Referencia o script -->
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Usuários Cadastrados</h1>
+
+        <!-- Tabela com estilo Bootstrap -->
+        <table class="table table-striped" id="tabelaUsuarios">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Senha</th>
+                    <th>Tipo de Usuário</th>
+                    <th>Atualizar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <!-- Botões de navegação -->
+        <form th:action="@{/principal}" method="GET">
+            <button type="submit" class="btn btn-secondary">Voltar</button>
+        </form>
+        <br />
+        <form th:action="@{/cadastrar-usuario}" method="GET">
+            <button type="submit" class="btn btn-primary">Cadastrar Novo Usuário</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

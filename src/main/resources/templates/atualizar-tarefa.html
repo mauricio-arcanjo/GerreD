@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+
+<head>
+    <title>Atualizar Tarefa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1>Atualizar Tarefa</h1> 
+
+    <!-- Formulário de Atualização de Tarefa -->
+    <form th:action="@{/atualizar-tarefa/{id}(id=${tarefa.id})}" method="POST" class="form-group"> 
+        <!-- ID da Tarefa -->
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" th:field="${tarefa.id}" class="form-control" readonly/>
+        </div>
+
+        <!-- Tipo de Tarefa -->
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <input type="text" id="tipo" th:field="${tarefa.tipo}" class="form-control" placeholder="Digite o tipo de tarefa" required/>
+        </div>
+
+        <!-- Descrição da Tarefa -->
+        <div class="form-group">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" th:field="${tarefa.descricao}" class="form-control" placeholder="Digite a descrição da tarefa" required/>
+        </div>
+
+        <!-- Instruções da Tarefa -->
+        <div class="form-group">
+            <label for="instrucoes">Instruções:</label>
+            <input type="text" id="instrucoes" th:field="${tarefa.instrucoes}" class="form-control" placeholder="Digite as instruções" required/>
+        </div>
+
+        <!-- Data da Tarefa -->
+        <div class="form-group">
+            <label for="data">Data:</label>
+            <input type="date" id="data" th:field="${tarefa.data}" class="form-control" required/>
+        </div>
+
+        <!-- Responsável pela Tarefa (Usuário) -->
+        <div class="form-group">
+            <label for="responsavel">Responsável:</label>
+            <select id="responsavel" th:field="${tarefa.responsavel}" class="form-control">
+                <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
+            </select>
+        </div>
+
+        <!-- Status da Tarefa -->
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" th:field="${tarefa.status}" class="form-control">
+                <option value="true" th:selected="${tarefa.status} == true">Concluída</option>
+                <option value="false" th:selected="${tarefa.status} == false">Pendente</option>
+            </select>
+        </div>
+
+        <!-- Botão de Envio -->
+        <button type="submit" class="btn btn-primary">Atualizar</button> 
+    </form>
+
+</body>
+</html>

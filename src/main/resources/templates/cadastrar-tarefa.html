@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+
+<head>
+    <title>Cadastrar Tarefa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1>Cadastrar Tarefa</h1>
+        <form th:action="@{/cadastrar-tarefa}" method="POST" th:object="${tarefa}">
+            <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <input type="text" class="form-control" th:field="*{tipo}" placeholder="Tipo da tarefa" required />
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" th:field="*{descricao}" placeholder="Descrição da tarefa" required />
+            </div>
+            <div class="form-group">
+                <label for="instrucoes">Instruções</label>
+                <input type="text" class="form-control" th:field="*{instrucoes}" placeholder="Instruções para a tarefa" />
+            </div>
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input type="date" class="form-control" th:field="*{data}" required />
+            </div>
+            <div class="form-group">
+                <label for="responsavel">Responsável</label>
+                <select class="form-control" th:field="*{responsavel.id}" required>
+                    <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" th:field="*{status}" required>
+                    <option value="false">Pendente</option>
+                    <option value="true">Concluída</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a th:href="@{/tarefas}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</body>
+</html>

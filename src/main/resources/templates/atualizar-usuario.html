@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+
+<head>
+    <title>Atualizar Usuário</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Atualizar Usuário</h1> 
+    <!-- Formulário de Login -->
+    <form th:action="@{/cadastrar-usuario}" method="POST"> 
+        <p>ID: <input type="text" th:field="${usuario.id}" readonly/></p>
+        <p>Nome: <input type="text" th:field="${usuario.nome}" /></p> 
+        <p>Email: <input type="email" th:field="${usuario.email}" /></p> 
+        <p>Senha: <input type="password" th:field="${usuario.senha}" /></p> 
+
+        <!-- Caixa de seleção para escolher o tipo de usuário -->
+        <p>
+            <label for="tipoUsuario">Tipo de Usuário:</label>
+            <br/>
+            <select th:field="${usuario.tipoUsuario}" id="tipoUsuario">
+                <option value="MEMBRO">Membro</option>
+                <option value="ADMIN">Administrador</option>
+            </select>
+        </p>
+
+        <input type="submit" value="Atualizar" /> 
+    </form>
+
+</body>
+</html>

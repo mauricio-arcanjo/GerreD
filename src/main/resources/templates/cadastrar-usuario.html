@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Cadastro de Usuário</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Cadastro de Usuário</h1>
+        <!-- Formulário de Cadastro -->
+        <form th:action="@{/cadastrar-usuario}" method="POST">
+            <div class="form-group">
+                <label for="txtNome">Nome</label>
+                <input type="text" name="nome" id="txtNome" class="form-control" placeholder="Nome" required />
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="email" name="email" id="txtEmail" class="form-control" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+                <label for="pswSenha">Senha</label>
+                <input type="password" name="senha" id="pswSenha" class="form-control" placeholder="Senha" required />
+            </div>
+            <div class="form-group">
+                <label for="tipoUsuario">Tipo de Usuário</label>
+                <select name="tipoUsuario" id="tipoUsuario" class="form-control">
+                    <option value="MEMBRO">Membro</option>
+                    <option value="ADMIN">Administrador</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

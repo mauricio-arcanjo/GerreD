@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>GerreD Web - Principal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center my-5">
+                <h1 class="mb-5">Bem-vindo(a) ao GerreD!</h1>
+
+                <!-- Formulários para acessar as páginas -->
+                <form th:action="@{/usuarios}" method="GET" class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Usuários</button>
+                </form>
+                
+                <form th:action="@{/tarefas}" method="GET" class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Tarefas</button>
+                </form>
+
+                <form th:action="@{/itens}" method="GET" class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Itens para Comprar</button>
+                </form>
+                
+                <form th:action="@{/logoff}" method="GET" class="form-group">
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">Sair</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
